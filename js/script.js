@@ -17,21 +17,37 @@ project 1 - A Random Quote Generator
 
 const quotes = [
     {
-        quote: 'Here is a quote',
-        source: 'Jeremy Rummel',
-        citation: 'None',
-        year: 2019
+        quote: 'A pessimist sees the difficulty in every opportunity; an optimist sees the opportunity in every difficulty.',
+        source: 'Winston Churchill',
+        year: 1939,
+        tag: 'Difficulty'
     },
     {
-        quote: 'Number Two',
-        source: 'Jeremy Rummel',
-        citation: '',
-        year: 1981
+        quote: 'The ultimate measure of a man is not where he stands in moments of comfort and convenience, but where he stands at times of challenge and controversy.',
+        source: 'Martin Luther King, Jr.',
+        citation: 'Speech',
+        year: 1964
     },
     {
-        quote: 'Number 3',
-        source: 'Jeremy Rummel',
-        citation: 'Movie'
+        quote: 'I\'ve failed over and over and over again in my life and that is why I succeed.',
+        source: 'Michael Jordan',
+        citation: 'Hall of Fame Induction Speech',
+        year: 2009,
+        tag: "Sports"
+    },
+    {
+        quote: "A house divided against itself cannot stand.",
+        source: "Abraham Lincoln",
+        citation: "Speech at SpringField, IL",
+        year: 1858,
+        tag: "Politics"
+    },
+    {
+        quote: "I got cat-like speed and reflexes!",
+        source: "Tommy Callahan",
+        citation: "Tommy Boy",
+        year: 1995,
+        tag: "Comedy"
     }
     ];
 
@@ -79,25 +95,21 @@ const printQuote = () => {
             year = `<span class="year">${newQuote.year}</span>`
         }
         if (newQuote.tag) {
-            tag = `<span class="tag">${newQuote.tag}</span>`
+            tag = `<span class="tag">, ${newQuote.tag}</span>`
         }
         let source = `<p class="source"> ${newQuote.source}  ${citation}  ${year}  ${tag}</p>`;
         randomQuote = quote.concat(source);
         document.getElementById('quote-box').innerHTML = randomQuote;
     };
-    setInterval(intervalChange, 20000);
+    setInterval(intervalChange, 10000);
 };
 
 
 
 /***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
+  printQuote function runs with an interval set for 20 seconds with rotation background colors and random quotes.
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
